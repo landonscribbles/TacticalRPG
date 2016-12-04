@@ -21,9 +21,15 @@ public class Tile : MonoBehaviour {
     void Start() {
         tileOccupied = false;
         // worldPosition = transform.position;
+        GameObject tileParents = GameObject.Find("MovementTiles");
+        if (tileParents == null) {
+            tileParents = new GameObject();
+        }
         GameObject movementHighlightObject = Instantiate(movementHighlightPrefab, transform.position, Quaternion.identity) as GameObject;
+        movementHighlightObject.transform.parent = tileParents.transform;
         movementHighlight = movementHighlightObject.GetComponent<TileHighlight>();
         GameObject attackHighlightObject = Instantiate(attackHighlightPrefab, transform.position, Quaternion.identity) as GameObject;
+        attackHighlightObject.transform.parent = tileParents.transform;
         attackHighlight = attackHighlightObject.GetComponent<TileHighlight>();
         BoardUtils.Instance.RegisterTile(this);
     }

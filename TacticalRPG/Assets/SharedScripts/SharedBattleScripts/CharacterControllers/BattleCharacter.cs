@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BattleCharacter : MonoBehaviour {
+public class BattleCharacter : MonoBehaviour, BattleActorInterface {
 
     [SerializeField]
     private string characterName;
@@ -34,6 +34,30 @@ public class BattleCharacter : MonoBehaviour {
 
     public void SetAsPlayerCharacter() {
         playerCharacter = true;
+    }
+
+    public void StartTurn() {
+        Debug.Log("Started turn!");
+    }
+
+    public void EndTurn() {
+
+    }
+
+    public string GetCharacterName() {
+        return characterName;
+    }
+
+    public Sprite GetCharacterPortrait() {
+        return portrait;
+    }
+
+    public int GetCurrentSkillPoints() {
+        return currentSkillPoints;
+    }
+
+    public int GetBaseSkillPoints() {
+        return baseSkillPoints;
     }
 
 }

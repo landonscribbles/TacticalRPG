@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class BattleLoader : MonoBehaviour {
+    // TEMPORARY
 
     public GameObject[] battleCharacters;
     public GameObject loadedCharacter;
 
 	void Start () {
-        Vector2 loadCharLocation = new Vector2(0, 0);
-        loadedCharacter = Instantiate(battleCharacters[0], loadCharLocation, Quaternion.identity) as GameObject;
+        Vector3 startingBerserkerPlayer = BoardUtils.Instance.GetWorldPositionFromTileGrid(new Vector2(8, 0));
+        loadedCharacter = Instantiate(battleCharacters[0], startingBerserkerPlayer, Quaternion.identity) as GameObject;
         BattleCharacter loadedCharScript = loadedCharacter.GetComponent<BattleCharacter>();
         loadedCharScript.SetAsPlayerCharacter();
 	}

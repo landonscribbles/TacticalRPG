@@ -11,11 +11,24 @@ public class Initiative : MonoBehaviour {
         turnInitiative = 0;
     }
 
+    void Start() {
+        BattleUtils.Instance.RegisterInitiative(this);
+    }
+
+    public int GetTurnSpeed() {
+        return baseTurnSpeed;
+    }
+
     public void UpdateTurnInitiative() {
         turnInitiative += GetTurnSpeed();
     }
 
-    private int GetTurnSpeed() {
-        return baseTurnSpeed;
+    public int GetTurnInitiative() {
+        return turnInitiative;
     }
+
+    public void ResetTurnInitiative() {
+        turnInitiative = 0;
+    }
+
 }

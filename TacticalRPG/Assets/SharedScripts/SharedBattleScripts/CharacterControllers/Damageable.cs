@@ -66,4 +66,12 @@ public class Damageable : MonoBehaviour {
         return baseMagicDodge;
     }
 
+    public int GetCurrentHitPoints() {
+        return currentHitPoints;
+    }
+
+    public int GetBaseHitPoints() {
+        return baseHitPoints;
+    }
+
 }
